@@ -6,6 +6,7 @@ import Navbar from "./Component/Navbar";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
+import Hero from "./Component/Hero";
 
 const AppContainer = styled.div`
   font-family: Calibri, "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -20,6 +21,7 @@ const App = () => {
       <Router>
         <Header />
         <Navbar />
+        <Hero />
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route path="about" element={<About />} />
