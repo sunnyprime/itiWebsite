@@ -44,7 +44,7 @@ const PrevArrow = styled(Arrow)`
   left: 0;
 `;
 
-const ImageSlider = () => {
+const Closure = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideWidth, setSlideWidth] = useState(0);
 
@@ -88,4 +88,4 @@ const ImageSlider = () => {
   );
 };
 
-export default ImageSlider;
+export default Closure;
