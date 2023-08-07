@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const HeaderContainer = styled.div`
   width: 100%;
@@ -38,7 +38,11 @@ const Header = () => {
   return (
     <ResponsiveHeaderContainer>
       <ContactNow>
-        Contact now : +91 9334512804 [<a href="mailto:info@spateliti.com" target="_blank">info@spateliti.com</a>]
+        Contact now : +91 9334512804 [
+        <a href="mailto:info@spateliti.com" target="_blank" rel="noreferrer">
+          info@spateliti.com
+        </a>
+        ]
       </ContactNow>
     </ResponsiveHeaderContainer>
   );
