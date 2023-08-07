@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 
 const SliderContainer = styled.div`
@@ -13,7 +13,7 @@ const SliderContainer = styled.div`
 const Slide = styled.div`
   width: 100%;
   height: 100%;
-  background-size: cover; /* Fix image coverage issue */
+  background-size: cover;
   background-position: center;
   transition: opacity 0.5s ease;
   opacity: ${({ active }) => (active ? '1' : '0')};
@@ -48,20 +48,20 @@ const Closure = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideWidth, setSlideWidth] = useState(0);
 
-  const images = [
+  const images = useMemo(() => [
     'http://www.spateliti.com/images/banner1.jpg',
     'http://www.spateliti.com/images/banner2.jpg',
     'http://www.spateliti.com/images/banner3.jpg',
     'http://www.spateliti.com/images/banner4.jpg',
-  ];
+  ], []);
 
-  const goToNextSlide = () => {
+  const goToNextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-  };
+  }, [images]);
 
-  const goToPrevSlide = () => {
+  const goToPrevSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
-  };
+  }, [images]);
 
   useEffect(() => {
     setSlideWidth(`-${currentIndex * 100}%`);
